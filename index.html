@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 射击游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 设置面板 -->
+    <div id="settings-panel" class="settings-panel">
+        <div class="settings-container">
+            <h1>🎮 游戏资源与参数设置</h1>
+            
+            <div class="settings-section">
+                <h2>环境资源</h2>
+                <div class="setting-row">
+                    <label for="bg-upload">背景图片：</label>
+                    <input type="file" id="bg-upload" accept="image/*">
+                    <span class="preview-info" id="bg-preview-info">未选择</span>
+                </div>
+                <div class="setting-row">
+                    <label for="cursor-upload">瞄准镜图片：</label>
+                    <input type="file" id="cursor-upload" accept="image/*">
+                    <span class="preview-info" id="cursor-preview-info">未选择</span>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>敌人动画</h2>
+                <div class="setting-row">
+                    <label for="enemy-move-upload">怪物移动序列帧（多选）：</label>
+                    <input type="file" id="enemy-move-upload" accept="image/*" multiple>
+                    <span class="preview-info" id="enemy-move-preview-info">未选择</span>
+                </div>
+                <div class="setting-row">
+                    <label for="enemy-death-upload">怪物死亡特效序列帧（多选）：</label>
+                    <input type="file" id="enemy-death-upload" accept="image/*" multiple>
+                    <span class="preview-info" id="enemy-death-preview-info">未选择</span>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>玩家特效</h2>
+                <div class="setting-row">
+                    <label for="fire-effect-upload">开火特效序列帧（多选）：</label>
+                    <input type="file" id="fire-effect-upload" accept="image/*" multiple>
+                    <span class="preview-info" id="fire-effect-preview-info">未选择</span>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>游戏参数</h2>
+                <div class="setting-row">
+                    <label for="speed-slider">怪物移动速度：</label>
+                    <input type="range" id="speed-slider" min="1" max="10" value="3">
+                    <span class="slider-value" id="speed-value">3</span>
+                </div>
+                <div class="setting-row">
+                    <label for="anim-speed-slider">动画播放速度（帧间隔ms）：</label>
+                    <input type="range" id="anim-speed-slider" min="50" max="500" value="150" step="10">
+                    <span class="slider-value" id="anim-speed-value">150ms</span>
+                </div>
+            </div>
+
+            <div class="button-row">
+                <button id="start-btn" class="btn-primary">开始游戏 🎮</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 游戏画布 -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- 游戏HUD -->
+    <div id="game-hud" class="game-hud hidden">
+        <div class="score-display">得分: <span id="score">0</span> / 10</div>
+    </div>
+
+    <!-- 胜利画面 -->
+    <div id="victory-screen" class="victory-screen hidden">
+        <div class="victory-content">
+            <h1>🎉 You Win! 🎉</h1>
+            <p>恭喜你完成了游戏！</p>
+            <button id="restart-btn" class="btn-primary">返回设置 🔧</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
